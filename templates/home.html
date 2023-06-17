@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+    <html lang="fa-Ir">
+    <head>
+        {% load static %}
+        <script src="https://kit.fontawesome.com/72e837d412.js" crossorigin="anonymous"></script>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="shortcut icon" href="{% static 'assets/img/favicon.png' %}" type="image/png">
+
+        <!--=============== REMIXICONS ===============-->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+        
+        <!--=============== SWIPER CSS ===============-->
+        <link rel="stylesheet" href="{% static 'assets/css/swiper-bundle.min.css' %}">
+
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+        
+
+
+        <title>باسیل تور</title>
+    </head>
+    <body>
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="#" class="nav__logo">باسیل تور</a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="#home" class="nav__link active-link">صفحه اصلی</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#about" class="nav__link">تور فعلی</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#discover" class="nav__link">تصاویر</a>
+                        </li>
+                        <li class="nav__item">
+                            <button class="btnLogin-popup">ورود</button>
+
+
+                        </li>
+                    
+                    
+                        
+                    </ul>
+
+                    <div class="nav__dark">
+                        <!-- Theme change button -->
+                        <span class="change-theme-name">Dark mode</span>
+                        <i class="ri-moon-line change-theme" id="theme-button"></i>
+                    </div>
+
+                    <i class="ri-close-line nav__close" id="nav-close"></i>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="ri-function-line"></i>
+                </div>
+            </nav>
+        </header>
+
+        <main class="main">
+            <!--==================== HOME ====================-->
+            <section class="home" id="home">
+                <img src="{% static 'assets/img/home1.jpg' %}" alt="" class="home__img">
+                <div class="wrapper">
+                    <span class="icon-close">
+                        <i class="fa-sharp fa-solid fa-xmark"></i>
+
+                    </span>
+                    <div class="logreg-box">
+                        <div class="form-box login">
+                            <div class="logreg-title">
+                                <h2>ورود</h2>
+                                <p>اطلاعات خود را وارد کنید</p>
+                            </div>
+                            <form method="post" action="{% url 'login' %}">
+                                {% csrf_token %}
+                                <div class="input-box">
+                                    <span class="icon"><i class="fa-solid fa-user"></i></span>
+                                    <input type="text" name="username" required>
+                                    <label for="username">نام کاربری</label>
+                                </div>
+                                <div class="input-box">
+                                    <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                                    <input type="password" name="password" required>
+                                    <label for="password">رمز</label>
+                                </div>
+                                <div class="remember-forget">
+                                    <label>
+                                        <input type="checkbox"> به خاطر بسپار
+                                    </label>
+                                </div>
+                                <input type="submit"
+                                class="btn" value="ورود">
+                                <div class="logreg-link">
+                                    <p>
+                                        حساب کاربری ندارید ؟ <a
+                                        href="#" class="register-link">ثبت نام</a>
+                                    </p>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="form-box register">
+                            <div class="logreg-title">
+                                <h2>ثبت نام</h2>
+                                <p>اطلاعات خود را وارد کنید</p>
+                            </div>
+                            <form method="post" action="{% url 'signup' %}">
+                                {% csrf_token %}
+                                <div class="input-box">
+                                    <span class="icon"><i class="fa-solid fa-user"></i></span>
+                                    <input type="text" name="username" required>
+                                    <label for="username">نام کاربری</label>
+                                </div>
+
+                                <div class="input-box">
+                                    <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                                    <input type="email" name="email" required>
+                                    <label for="email">ایمیل</label>
+                                </div>
+                                <div class="input-box">
+                                    <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                                    <input type="password" name="password" required>
+                                    <label for="password">رمز</label>
+                                </div>
+                                <div class="remember-forget">
+                                    <label>
+                                        <input type="checkbox"> به خاطر بسپار
+                                    </label>
+                                </div>
+                                <input type="submit"
+                                class="btn" value="ثبت نام">
+                                <div class="logreg-link">
+                                    <p>
+                                         قبلا ثبت نام کرده اید؟<a
+                                        href="#" class="login-link">ورود</a>
+                                    </p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="media-options">
+                        <a href="#"><box-icon type='logo' name='google'></box-icon><span>ورود با حساب گوگل</span></a>
+                        <a href="#"><box-icon name='facebook-circle' type='logo' ></box-icon><span>ورود با حساب فیسبوک</span></a>
+                    </div>
+                </div>
+
+
+
+               
+                <div class="home__container container grid">
+                    <div class="home__data">
+                        <h1 class="home__data-title">لذت کشف <br> بهترین <b>مکان های <br> ایران</b></h1>
+                        <a href="#about" class="button">بریم</a>
+
+                    </div>
+
+                    <div class="home__social">
+                        <a href="https://www.facebook.com/" target="_blank" class="home__social-link">
+                            <i class="ri-facebook-box-fill"></i>
+                        </a>
+                        <a href="https://www.instagram.com/" target="_blank" class="home__social-link">
+                            <i class="ri-instagram-fill"></i>
+                        </a>
+                        <a href="https://twitter.com/" target="_blank" class="home__social-link">
+                            <i class="ri-twitter-fill"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </section>
+
+            <!--==================== ABOUT ====================-->
+            <section class="about section" id="about">
+                <div class="about__container container grid">
+                    <div class="about__data">
+                        <h2 class="section__title about__title"> تور گردشگری <br> باغ شازده ماهان </h2>
+                        <p class="about__description">اغاز ثبت نام از اول شهریور تا پنج شهریور<br>
+                            حرکت : هفت شهریور <br>
+                            با اتوبوس اختصاصی <br> 
+                            به صرف ناهار و پزیرایی
+                        </p>
+                        <a href="tour_register/" class="button">رزرو</a>
+                    </div>
+
+                    <div class="about__img">
+                        <div class="about__img-overlay">
+                            <img src="{% static 'assets/img/about1.jpg' %}" alt="" class="about__img-one">
+                        </div>
+
+                        <div class="about__img-overlay">
+                            <img src="{% static 'assets/img/about2.jpg' %}" alt="" class="about__img-two">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!--==================== DISCOVER ====================-->
+            <section class="discover section" id="discover">
+                <h2 class="section__title">تصاویر تور <br> باغ شازده ماهان</h2>
+                
+                <div class="discover__container container swiper-container">
+                    <div class="swiper-wrapper">
+                        <!--==================== DISCOVER 1 ====================-->
+                        <div class="discover__card swiper-slide">
+                            <img src="{% static 'assets/img/discover1.jpg' %}" alt="" class="discover__img">
+                            <div class="discover__data">
+                            </div>
+                        </div>
+
+                        <!--==================== DISCOVER 2 ====================-->
+                        <div class="discover__card swiper-slide">
+                            <img src="{% static 'assets/img/discover2.jpg' %}" alt="" class="discover__img">
+                            <div class="discover__data">
+                  
+                            </div>
+                        </div>
+
+                        <!--==================== DISCOVER 3 ====================-->
+                        <div class="discover__card swiper-slide">
+                            <img src="{% static 'assets/img/discover3.jpg' %}" alt="" class="discover__img">
+                            <div class="discover__data">
+                           
+                            </div>
+                        </div>
+
+                        <!--==================== DISCOVER 4 ====================-->
+                        <div class="discover__card swiper-slide">
+                            <img src="{% static 'assets/img/discover4.jpg' %}" alt="" class="discover__img">
+                            <div class="discover__data">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--==================== EXPERIENCE ====================-->
+            <section class="experience section">
+                <h2 class="section__title">تجربه ما <br> بهترین خدمات به شما</h2>
+
+                <div class="experience__container container grid">
+                    <div class="experience__content grid">
+                        <div class="experience__data">
+                            <h2 class="experience__number">20</h2>
+                            <span class="experience__description">سال <br> تجربه</span>
+                        </div>
+
+                        <div class="experience__data">
+                            <h2 class="experience__number">750</h2>
+                            <span class="experience__description">تور <br> انجام شده</span>
+                        </div>
+
+                        <div class="experience__data">
+                            <h2 class="experience__number">650+</h2>
+                            <span class="experience__description">مکان های <br> توریستی</span>
+                        </div>
+                    </div>
+
+                    <div class="experience__img grid">
+                        <div class="experience__overlay">
+                            <img src="{% static 'assets/img/experience1.jpg' %}" alt="" class="experience__img-one">
+                        </div>
+                        
+                        <div class="experience__overlay">
+                            <img src="{% static 'assets/img/experience2.jpg' %}" alt="" class="experience__img-two">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--==================== VIDEO ====================-->
+            <section class="video section">
+                <h2 class="section__title">تیزر تور پیش رو</h2>
+
+                <div class="video__container container">
+                    <p class="video__description">ویدیویی کوتاه برای درک بیشتر زیبایی های مقصد تور
+                    </p>
+
+                    <div class="video__content">
+                        <video id="video-file">
+                            <source src="{% static 'assets/video/video.mp4' %}" type="video/mp4">
+                        </video>
+
+                        <button class="button button--flex video__button" id="video-button">
+                            <i class="ri-play-line video__button-icon" id="video-icon"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!--==================== PLACES ====================-->
+            <section class="place section" id="place">
+                <h2 class="section__title">بقیه تور ها</h2>
+
+                <div class="place__container container grid">
+                    <!--==================== PLACES CARD 1 ====================-->
+                    <div class="place__card">
+                        <img src="{% static 'assets/img/place1.jpg' %}" alt="" class="place__img">
+                        
+                        <div class="place__content">
+                            <span class="place__rating">
+                                <i class="ri-star-line place__rating-icon"></i>
+                                <span class="place__rating-number">4,8</span>
+                            </span>
+
+                            <div class="place__data">
+                                <h3 class="place__title">ابشار کشیت</h3>
+                                <span class="place__subtitle">کرمان</span>
+                        
+                            </div>
+                        </div>
+
+                        
+                    </div>
+
+                    <!--==================== PLACES CARD 2 ====================-->
+                    <div class="place__card">
+                        <img src="{% static 'assets/img/place2.jpg' %}" alt="" class="place__img">
+                        
+                        <div class="place__content">
+                            <span class="place__rating">
+                                <i class="ri-star-line place__rating-icon"></i>
+                                <span class="place__rating-number">5,0</span>
+                            </span>
+
+                            <div class="place__data">
+                                <h3 class="place__title">کلوت شهداد</h3>
+                                <span class="place__subtitle"></span>
+                       
+                            </div>
+                        </div>
+
+    +         
+                    </div>
+
+                    <!--==================== PLACES CARD 3 ====================-->
+                    <div class="place__card">
+                        <img src="{% static 'assets/img/place3.jpg' %}" alt="" class="place__img">
+                        
+                        <div class="place__content">
+                            <span class="place__rating">
+                                <i class="ri-star-line place__rating-icon"></i>
+                                <span class="place__rating-number">4,9</span>
+                            </span>
+
+                            <div class="place__data">
+                                <h3 class="place__title">ارگ بم</h3>
+                                <span class="place__subtitle"></span>
+                                <span class="place__price"></span>
+                            </div>
+                        </div>
+
+                   
+                    </div>
+
+                    <!--==================== PLACES CARD 4 ====================-->
+                    <div class="place__card">
+                        <img src="{% static 'assets/img/place4.jpg' %}" alt="" class="place__img">
+                        
+                        <div class="place__content">
+                            <span class="place__rating">
+                                <i class="ri-star-line place__rating-icon"></i>
+                                <span class="place__rating-number">4,8</span>
+                            </span>
+
+                            <div class="place__data">
+                                <h3 class="place__title">ابشار راین</h3>
+                                <span class="place__subtitle"></span>
+                                <span class="place__price"></span>
+                            </div>
+                        </div>
+
+                      
+                    </div>
+
+                    <!--==================== PLACES CARD 5 ====================-->
+                    <div class="place__card">
+                        <img src="{% static 'assets/img/place5.jpg' %}" alt="" class="place__img">
+                        
+                        <div class="place__content">
+                            <span class="place__rating">
+                                <i class="ri-star-line place__rating-icon"></i>
+                                <span class="place__rating-number">4,8</span>
+                            </span>
+
+                            <div class="place__data">
+                                <h3 class="place__title">ابشار فوسک</h3>
+                                <span class="place__subtitle"></span>
+                                <span class="place__price"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!--==================== SUBSCRIBE ====================-->
+            <section class="subscribe section">
+                <div class="subscribe__bg">
+                    <div class="subscribe__container container">
+                        <h2 class="section__title subscribe__title">با خبر شدن از تور های ما</h2>
+                        <p class="subscribe__description">ایمیل خود را وارد کنید تا از جدید ترین تور های ما جا نمانید
+                        </p>
+    
+                        <form action="" class="subscribe__form">
+                            <input type="text" placeholder="ایمیل" class="subscribe__input">
+    
+                            <button class="button">
+                                وارد کردن
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            
+            <!--==================== SPONSORS ====================-->
+            <section class="sponsor section">
+                <div class="sponsor__container container grid">
+                    <div class="sponsor__content">
+                        <img src="{% static 'assets/img/sponsors1.png' %}" alt="" class="sponsor__img">
+                    </div>
+                    <div class="sponsor__content">
+                        <img src="{% static 'assets/img/sponsors2.png' %}" alt="" class="sponsor__img">
+                    </div>
+                    <div class="sponsor__content">
+                        <img src="{% static 'assets/img/sponsors3.png' %}" alt="" class="sponsor__img">
+                    </div>
+                    <div class="sponsor__content">
+                        <img src="{% static 'assets/img/sponsors4.png' %}" alt="" class="sponsor__img">
+                    </div>
+                    <div class="sponsor__content">
+                        <img src="{% static 'assets/img/sponsors5.png' %}" alt="" class="sponsor__img">
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!--==================== FOOTER ====================-->
+        <footer class="footer section">
+            <div class="footer__container container grid">
+                <div class="footer__content grid">
+                    <div class="footer__data">
+                        <h3 class="footer__title">باسیل تور</h3>
+                        <p class="footer__description">مقصد رو انتخاب کن  <br> لحظات خوشش <br> با ما
+                        </p>
+                        <div>
+                            <a href="https://www.facebook.com/" target="_blank" class="footer__social">
+                                <i class="ri-facebook-box-fill"></i>
+                            </a>
+                            <a href="https://twitter.com/" target="_blank" class="footer__social">
+                                <i class="ri-twitter-fill"></i>
+                            </a>
+                            <a href="https://www.instagram.com/" target="_blank" class="footer__social">
+                                <i class="ri-instagram-fill"></i>
+                            </a>
+                            <a href="https://www.youtube.com/" target="_blank" class="footer__social">
+                                <i class="ri-youtube-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+    
+                    <div class="footer__data">
+                        <h3 class="footer__subtitle">تیم ما</h3>
+                        <ul>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">درباره ما</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">ویژگی ها</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">اعضای تیم</a>
+                            </li>
+                        </ul>
+                    </div>
+    
+                    <div class="footer__data">
+                        <h3 class="footer__subtitle">اظلاعات بیشتر</h3>
+                        <ul>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">مجوز ها</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">نرخ نامه ها</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">اژانس های مسافربری</a>
+                            </li>
+                        </ul>
+                    </div>
+    
+                    <div class="footer__data">
+                        <h3 class="footer__subtitle">ساپورت</h3>
+                        <ul>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">FAQs</a>
+                            </li>
+
+                            <li class="footer__item">
+                                <a href="" class="footer__link">ارتباظ با ما</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer__rights">
+                    <p class="footer__copy">&#169; the jellies All rigths reserved.</p>
+                    <div class="footer__terms">
+                        <a href="#" class="footer__terms-link">Terms & Agreements</a>
+                        <a href="#" class="footer__terms-link">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+         <!--========== SCROLL UP ==========-->
+        <a href="#" class="scrollup" id="scroll-up">
+            <i class="ri-arrow-up-line scrollup__icon"></i>
+        </a>
+
+        <!--=============== SCROLL REVEAL===============-->
+        <script src="{% static 'assets/js/scrollreveal.min.js' %}"></script>
+        
+        <!--=============== SWIPER JS ===============-->
+        <script src="{% static 'assets/js/swiper-bundle.min.js' %}"></script>
+
+        <!--=============== MAIN JS ===============-->
+        <script src="{% static 'assets/js/main.js' %}"></script>
+    </body>
+</html>
